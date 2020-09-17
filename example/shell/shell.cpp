@@ -11,15 +11,11 @@
 #include <GetInput.hpp>
 #include <GetInfo.hpp>
 #include <Execute.hpp>
-
-void HelpFunction() {
-    std::cout << ShellUtilities::GetUsername() << 
-        "@" << ShellUtilities::GetHostname() << " #> ";
-}
+#include <Terminal.hpp>
 
 int main(/*int argc, char** argv*/) {
     while(1) {
-        HelpFunction();
+        ShellUtilities::SetTerminal(true, true, ">_:", "@");
         std::string data = ShellUtilities::Input();
 
         data = ShellUtilities::MakeCheckable(data);
