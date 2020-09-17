@@ -24,3 +24,7 @@ std::string ShellUtilities::Input() {
     } while(ch_int != '\n');
     return str;
 }
+
+std::string ShellUtilities::MakeCheckable(std::string input) {
+        return input.erase(input.length() - 1, input.length());
+}

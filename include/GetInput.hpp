@@ -12,7 +12,9 @@
 
 namespace ShellUtilities {
         int CharInput(void);
+
         std::string Input();
+        std::string MakeCheckable(std::string input);
 }
 
 #endif /* GET_INPUT_HPP */
