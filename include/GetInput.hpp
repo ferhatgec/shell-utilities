@@ -11,8 +11,8 @@
 #include <iostream>
 
 namespace ShellUtilities {
-    int CharInput(void);
-    std::string Input();
+        int CharInput(void);
+        std::string Input();
 }
 
 #endif /* GET_INPUT_HPP */
