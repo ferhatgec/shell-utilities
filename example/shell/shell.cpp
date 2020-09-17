@@ -12,6 +12,7 @@
 #include <GetInfo.hpp>
 #include <Execute.hpp>
 #include <Terminal.hpp>
+#include <ShellUtilities.hpp>
 
 int main(/*int argc, char** argv*/) {
     while(1) {
@@ -25,9 +26,12 @@ int main(/*int argc, char** argv*/) {
                 exit(EXIT_SUCCESS);
         else {
                 if(strcmp(data.c_str(), "help") == 0)
-                        std::cout << "Available commands: exit, help, desktop\n";
+                        std::cout << "Available commands: version, exit, help, desktop\n";
                 else if(strcmp(data.c_str(), "desktop") == 0)
                         std::cout << ShellUtilities::GetDesktopEnvironment() << "\n";
+                else if(strcmp(data.c_str(), "version") == 0)
+                        std::cout << NAME << " - " << ALL_VERSION << "\n" <<
+                        DESC << "\n";
                 else
                         ShellUtilities::RunFunction(data);
         }
