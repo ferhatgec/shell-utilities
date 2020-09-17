@@ -11,14 +11,14 @@
 #include <iostream>
 
 namespace ShellUtilities {
-    std::string GetUsername();
-    std::string GetHostname();
-    std::string GetDesktopEnvironment();
-    std::string GetOperatingSystem();
-    std::string GetEnvironmentString(const char *name);
+        std::string GetUsername();
+        std::string GetHostname();
+        std::string GetDesktopEnvironment();
+        std::string GetOperatingSystem();
+        std::string GetEnvironmentString(const char *name);
 
-    /* From GNU C Library (GetEnvironment) */
-    char * GetEnvironment(const char *name);
+        /* From GNU C Library (GetEnvironment) */
+        char * GetEnvironment(const char *name);
 }
 
 #endif /* GET_INFO_HPP */

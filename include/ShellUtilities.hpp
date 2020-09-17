@@ -18,4 +18,11 @@
 #define ALL_VERSION "0.1-beta-1"
 #define DESC "C++17 Library for make new CLI shell or applications that require information."
 
+#define PWD "PWD"
+
+class ShellVariables {
+public:
+        char *directory = ShellUtilities::GetEnvironment(PWD);
+};
+
 #endif /* GET_INPUT_HPP */
