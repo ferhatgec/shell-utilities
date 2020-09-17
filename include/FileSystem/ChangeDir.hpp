@@ -13,7 +13,7 @@
 namespace ShellUtilities {
         /* From ExecutePlusPlus library */
         void ChangeDir(std::string directory);
-        //void SetDirectory(std::string directory);
+        void SetDirectory(std::string directory);
 
         bool IsFileExist(const std::string &file);
 

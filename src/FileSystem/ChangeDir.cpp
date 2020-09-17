@@ -77,6 +77,14 @@ void ShellUtilities::ChangeDir(std::string name) {
     return;
 }
 
+void ShellUtilities::SetDirectory(std::string dir) {
+        if(ShellUtilities::IsFileExist(dir) == true) {
+                ShellVariables var;
+                strcpy(var.directory, dir.c_str()); 
+                chdir(dir.c_str());
+        }
+}
+
 bool ShellUtilities::IsFileExist(const std::string &file) {
         return access(file.c_str(), 0) == 0;
 }
