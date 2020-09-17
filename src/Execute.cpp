@@ -15,18 +15,20 @@
 #include <sys/wait.h>
 
 #include <Execute.hpp>
+#include <ShellUtilities.hpp>
 
 #define MAXCOM 1000
 #define MAXLIST 100
 
-static const char* name;
 static char inputString[1000], *parsedArgs[100];
 static char* parsedArgsPiped[MAXLIST]; 
 static int execFlag = 0;
 static std::string directory;
-	
+
+ShellVariables var;
+
 void ShellUtilities::ExecuteName(const char* exec_name) {
-	name = exec_name;
+	var.name = exec_name;
 }
 	
 int ShellUtilities::PipeParser(char* str, char** strpiped) { 
@@ -76,11 +78,11 @@ void ShellUtilities::ExecuteArgs(char** parsed) {
 	pid_t pid = fork();  
 	  
 	if (pid == -1) { 
-		std::cout << name << " : Failed forking child..\n"; 
+		std::cout << var.name << " : Failed forking child..\n"; 
 	    	return; 
 	} else if (pid == 0) { 
 		if (execvp(parsed[0], parsed) < 0)
-	        	std::cout << name << " : " << parsed[0] << " : command not found..\n"; 
+	        	std::cout << var.name << " : " << parsed[0] << " : command not found..\n"; 
         	exit(0); 
 	} else { 
 		/* Waiting for child to terminate */ 
@@ -95,13 +97,13 @@ void ShellUtilities::ExecuteArgsPiped(char** parsed, char** parsedpipe) {
 	pid_t p1, p2; 
 	  
 	if (pipe(pipefd) < 0) { 
-	    std::cout << name << " : Pipe could not be initialized\n";  
+	    std::cout << var.name << " : Pipe could not be initialized\n";  
 	    return; 
 	} 
 	
     	p1 = fork(); 
 	if (p1 < 0) { 
-	    std::cout << name << " : Could not fork.\n"; 
+	    std::cout << var.name << " : Could not fork.\n"; 
 	    return; 
 	} 
 	  
@@ -113,7 +115,7 @@ void ShellUtilities::ExecuteArgsPiped(char** parsed, char** parsedpipe) {
 	    	close(pipefd[1]); 
 	  
 	    	if (execvp(parsed[0], parsed) < 0) { 
-			std::cout << name << " : " << parsed[0] << " : first command not found..\n";
+			std::cout << var.name << " : " << parsed[0] << " : first command not found..\n";
 			exit(0); 
 	    	}	 
 	} else { 
@@ -121,7 +123,7 @@ void ShellUtilities::ExecuteArgsPiped(char** parsed, char** parsedpipe) {
 	    	p2 = fork(); 
 
 	    	if (p2 < 0) { 
-			std::cout << name << " : Could not fork.\n";  
+			std::cout << var.name << " : Could not fork.\n";  
             		return; 
 	   	 } 
 	  
@@ -132,7 +134,7 @@ void ShellUtilities::ExecuteArgsPiped(char** parsed, char** parsedpipe) {
 		        dup2(pipefd[0], STDIN_FILENO); 
 		        close(pipefd[0]); 
 		        if (execvp(parsedpipe[0], parsedpipe) < 0) { 
-				std::cout << name <<  " : " << parsed[0] << " : second command not found..\n";
+				std::cout << var.name <<  " : " << parsed[0] << " : second command not found..\n";
 	            		exit(0); 
 	        	} 
         	} else { 

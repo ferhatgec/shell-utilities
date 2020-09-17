@@ -23,6 +23,7 @@
 class ShellVariables {
 public:
         char *directory = ShellUtilities::GetEnvironment(PWD);
+        const char* name;
 };
 
 #endif /* GET_INPUT_HPP */
