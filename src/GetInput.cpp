@@ -16,7 +16,6 @@ int ShellUtilities::CharInput(void) {
 
 std::string ShellUtilities::Input() {
     int ch_int;
-    char ch;
     std::string str;
     do {
         ch_int = ShellUtilities::CharInput();

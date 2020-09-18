@@ -10,20 +10,39 @@
 
 #include <GetInfo.hpp>
 #include <Terminal.hpp>
+#include <ShellUtilities.hpp>
 
-void ShellUtilities::SetTerminal(bool username, bool hostname, 
-        std::string input_sign, std::string special_sign) {
+std::string ShellUtilities::SetTerminal(bool username, bool hostname, bool directory,
+        std::string input_sign, std::string special_sign, std::string directory_sign) {
+        ShellVariables var;
         std::string terminal;
-        if(username == true)
+
+        if(username == true) {
                 terminal.append(ShellUtilities::GetUsername());
+                if(hostname == true) {
+                        terminal.append(special_sign + ShellUtilities::GetHostname());
+                        if(directory == true) {
+                                terminal.append(" " + directory_sign + var.directory);
+                        } 
 
-        if(username == true && hostname == true)
-                terminal.append(special_sign + ShellUtilities::GetHostname());
+                } else
+                        if(directory == true)
+                                terminal.append(" " + directory_sign + var.directory);
+        }
+        
+        if(username != true) {
+                if(hostname == true) {
+                        terminal.append(ShellUtilities::GetHostname());
+                        if(directory == true) {
+                                terminal.append(" " + directory_sign + var.directory);
+                        }
+                } else {
+                        if(directory == true)
+                                terminal.append(" " + directory_sign + var.directory); 
+                }
+        }
 
-        if(hostname == true && username != true)
-                terminal.append(ShellUtilities::GetHostname());
+        terminal.append(" " + input_sign);
 
-        terminal.append(" " + input_sign + " ");
-
-        std::cout << terminal;
+        return terminal;
 }

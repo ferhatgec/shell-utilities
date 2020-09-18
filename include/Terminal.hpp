@@ -11,8 +11,9 @@
 #include <iostream>
 
 namespace ShellUtilities {
-        void SetTerminal(bool username, bool hostname, std::string input_sign,
-                std::string special_sign);
+        std::string SetTerminal(bool username, bool hostname, bool directory,
+                std::string input_sign, std::string special_sign,
+                std::string directory_sign);
 }
-
+        
 #endif /* TERMINAL_HPP */
