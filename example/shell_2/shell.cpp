@@ -16,6 +16,8 @@
 #include <StringTools.hpp>
 #include <ShellUtilities.hpp>
 #include <FileSystem/ChangeDir.hpp>
+#include <FileSystem/List.hpp>
+
 
 #include <Colorized.hpp>
 
@@ -23,6 +25,7 @@
 void Help() {
         std::cout << "Available commands: cd, version, exit, help, desktop\n";
 }
+
 /* ~directory::username @> */
 void TInput() {
         ShellUtilities::SetDirectorySign("~");
@@ -32,7 +35,7 @@ void TInput() {
         ShellUtilities::SetUsername(false, "");
         
         /* Input sign looks like ice cream */
-        ShellUtilities::SetInputSign("@>");
+        ShellUtilities::SetInputSign("@> ");
 }
 
 int main(/*int argc, char** argv*/) {
@@ -81,6 +84,8 @@ int main(/*int argc, char** argv*/) {
                         else if(data.rfind("cd", 0) == 0)
                                 ShellUtilities::ChangeDir(ShellUtilities::EraseAllSubString(data,
                                         "cd "));
+                        else if(strcmp(data.c_str(), "ls") == 0)
+                                ShellUtilities::DefaultList(true, "");
                         else /* Other commands from system */
                                 ShellUtilities::RunFunction(data);
                 }
