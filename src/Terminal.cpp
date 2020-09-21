@@ -46,3 +46,40 @@ std::string ShellUtilities::SetTerminal(bool username, bool hostname, bool direc
 
         return terminal;
 }
+
+void
+ShellUtilities::SetUsername(bool different, std::string different_tag) {
+        if(different == true)
+                std::cout << different_tag;
+        else
+                std::cout << ShellUtilities::GetUsername();
+}
+
+void
+ShellUtilities::SetHostname(bool different, std::string different_tag) {
+        if(different == true)
+                std::cout << different_tag;
+        else
+                std::cout << ShellUtilities::GetHostname();
+}
+
+void
+ShellUtilities::SetDirectoryName() {
+        ShellVariables var;
+        std::cout << var.directory;
+}
+
+void 
+ShellUtilities::SetInputSign(std::string input_sign) {
+        std::cout << input_sign;
+}
+
+void
+ShellUtilities::SetDirectorySign(std::string dir_sign) {
+        std::cout << dir_sign;
+}
+
+void
+ShellUtilities::SetSign(std::string sign) {
+        std::cout << sign;
+}
