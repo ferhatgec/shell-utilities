@@ -16,4 +16,8 @@ inline const char* CSTR(std::string str) {
         return str.data();
 }
 
+inline std::string STRC(const char* ch) {
+        return (std::string)ch;
+}
+
 #endif /* KEYWORDS_HPP */

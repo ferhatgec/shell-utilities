@@ -84,10 +84,9 @@ int main(/*int argc, char** argv*/) {
                         if(ShellUtilities::Compare(CSTR(data), "help") == 0)
                                 Help();
                         else if(ShellUtilities::Compare(CSTR(data), "desktop") == 0)
-                                std::cout << ShellUtilities::GetDesktopEnvironment() << "\n";
+                                ShellUtilities::Print(ShellUtilities::GetDesktopEnvironment() + "\n");
                         else if(ShellUtilities::Compare(CSTR(data), "version") == 0)
-                                std::cout << NAME << " - " << ALL_VERSION << "\n" <<
-                                        DESC << "\n";
+                                ShellUtilities::Print(NAME + STRC(" - ")  + ALL_VERSION + "\n" + DESC + "\n");
                         else if(data.rfind("cd", 0) == 0)
                                 ShellUtilities::ChangeDir(ShellUtilities::EraseAllSubString(data,
                                         "cd "));

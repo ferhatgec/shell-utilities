@@ -12,6 +12,8 @@
 #include <Terminal.hpp>
 #include <ShellUtilities.hpp>
 
+#include <Output/Print.hpp>
+
 std::string ShellUtilities::SetTerminal(bool username, bool hostname, bool directory,
         std::string input_sign, std::string special_sign, std::string directory_sign) {
         ShellVariables var;
@@ -50,36 +52,36 @@ std::string ShellUtilities::SetTerminal(bool username, bool hostname, bool direc
 void
 ShellUtilities::SetUsername(bool different, std::string different_tag) {
         if(different == true)
-                std::cout << different_tag;
+                ShellUtilities::Print(different_tag);
         else
-                std::cout << ShellUtilities::GetUsername();
+                ShellUtilities::Print(ShellUtilities::GetUsername());
 }
 
 void
 ShellUtilities::SetHostname(bool different, std::string different_tag) {
         if(different == true)
-                std::cout << different_tag;
+                ShellUtilities::Print(different_tag);
         else
-                std::cout << ShellUtilities::GetHostname();
+                ShellUtilities::Print(ShellUtilities::GetHostname());
 }
 
 void
 ShellUtilities::SetDirectoryName() {
         ShellVariables var;
-        std::cout << var.directory;
+        ShellUtilities::Print(var.directory);
 }
 
 void 
 ShellUtilities::SetInputSign(std::string input_sign) {
-        std::cout << input_sign;
+        ShellUtilities::Print(input_sign);
 }
 
 void
 ShellUtilities::SetDirectorySign(std::string dir_sign) {
-        std::cout << dir_sign;
+        ShellUtilities::Print(dir_sign);
 }
 
 void
 ShellUtilities::SetSign(std::string sign) {
-        std::cout << sign;
+        ShellUtilities::Print(sign);
 }
