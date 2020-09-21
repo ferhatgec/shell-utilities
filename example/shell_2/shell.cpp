@@ -70,21 +70,21 @@ int main(/*int argc, char** argv*/) {
                 ShellUtilities::ExecuteName("MyShell");
     
                 /* Check if data equals 'exit' */
-                if(strcmp(data.c_str(), "exit") == 0)
+                if(ShellUtilities::Compare(data.c_str(), "exit") == 0)
                         exit(EXIT_SUCCESS);
                 else {
                         /* Check if data equals 'help */
-                        if(strcmp(data.c_str(), "help") == 0)
+                        if(ShellUtilities::Compare(data.c_str(), "help") == 0)
                                 Help();
-                        else if(strcmp(data.c_str(), "desktop") == 0)
+                        else if(ShellUtilities::Compare(data.c_str(), "desktop") == 0)
                                 std::cout << ShellUtilities::GetDesktopEnvironment() << "\n";
-                        else if(strcmp(data.c_str(), "version") == 0)
+                        else if(ShellUtilities::Compare(data.c_str(), "version") == 0)
                                 std::cout << NAME << " - " << ALL_VERSION << "\n" <<
                                         DESC << "\n";
                         else if(data.rfind("cd", 0) == 0)
                                 ShellUtilities::ChangeDir(ShellUtilities::EraseAllSubString(data,
                                         "cd "));
-                        else if(strcmp(data.c_str(), "ls") == 0)
+                        else if(ShellUtilities::Compare(data.c_str(), "ls") == 0)
                                 ShellUtilities::DefaultList(true, "");
                         else /* Other commands from system */
                                 ShellUtilities::RunFunction(data);
