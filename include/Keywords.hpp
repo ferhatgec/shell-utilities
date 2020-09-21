@@ -12,6 +12,10 @@
 #include <cstring>
 #include <cstdlib>
 
+#include <Output/Print.hpp>
+
+#define NEWLINE ShellUtilities::Print("\n");
+
 inline const char* CSTR(std::string str) {
         return str.data();
 }
