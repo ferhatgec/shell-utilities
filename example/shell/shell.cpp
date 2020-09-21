@@ -17,6 +17,8 @@
 #include <ShellUtilities.hpp>
 #include <FileSystem/ChangeDir.hpp>
 
+#include <Colorized.hpp>
+
 int main(/*int argc, char** argv*/) {
         /* Set directory (Default PWD) */
         ShellUtilities::SetDirectory("/home/");
@@ -34,9 +36,15 @@ int main(/*int argc, char** argv*/) {
                 /* username@hostname >_: */
                 std::cout << term;
 
+                /* White color */
+                ShellUtilities::printfc(ShellUtilities::colorize(TYPE::LIGHT,
+                        WHITE), false, nullptr);
+
                 /* Input */
                 data = ShellUtilities::Input();
-        
+                
+                RESETB /* Reset color */
+
                 /* Check string and delete last character */
                 data = ShellUtilities::MakeCheckable(data);
 
