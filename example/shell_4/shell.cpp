@@ -24,7 +24,6 @@
 #include <Output/Colorized.hpp>
 #include <Output/Print.hpp>
 
-#include <echo.hpp>
 
 /* Help */
 void Help() {
@@ -99,7 +98,7 @@ int main(/*int argc, char** argv*/) {
                                 ShellUtilities::ReadText(ShellUtilities::GetCurrentWorkingDir() + "/" + data);
                         } else if(data.rfind("echo", 0) == 0) {
                                 data = ShellUtilities::EraseAllSubString(data, "echo ");
-                                ShellUtilities::FEcho(data);
+                                ShellUtilities::Echo(data);
                         } else /* Other commands from system */
                                 ShellUtilities::RunFunction(data);
                 }

@@ -17,7 +17,7 @@
 
 #include <echo.hpp>
 
-void ShellUtilities::Echo(std::string argument) {
+void ShellUtilities::FEcho(std::string argument) {
         if(argument != "") {
                 if(argument[0] == '$') { 
                         argument = argument.erase(0, 1);

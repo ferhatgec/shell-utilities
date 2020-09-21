@@ -11,7 +11,7 @@
 #include <iostream>
 
 namespace ShellUtilities {
-        void Echo(std::string);
+        void FEcho(std::string);
 }
 
 #endif /* ECHO_HPP */
