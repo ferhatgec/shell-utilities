@@ -30,12 +30,18 @@ void Help() {
 
 /* ~directory::username @> */
 void TInput() {
+        BLUE_COLOR
         ShellUtilities::SetDirectorySign("~");
+        LIGHT_CYAN_COLOR
         ShellUtilities::SetDirectoryName();
 
+        LIGHT_GREEN_COLOR
         ShellUtilities::SetSign("::");
+
+        LIGHT_MAGENTA_COLOR
         ShellUtilities::SetUsername(false, "");
         
+        YELLOW_COLOR
         /* Input sign looks like ice cream */
         ShellUtilities::SetInputSign("@> ");
 }
@@ -57,9 +63,7 @@ int main(/*int argc, char** argv*/) {
                 TInput();
 
                 /* White color */
-                ShellUtilities::printfc(ShellUtilities::colorize(TYPE::LIGHT,
-                        WHITE), false, nullptr);
-
+                LIGHT_WHITE_COLOR
                 /* Input */
                 data = ShellUtilities::Input();
                 
