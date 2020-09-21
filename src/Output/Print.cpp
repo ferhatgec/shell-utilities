@@ -61,8 +61,8 @@ void ShellUtilities::Echo(std::string argument) {
                         if(environment != NULL)
                                 ShellUtilities::Print(environment);
                         else
-                                ShellUtilities::Print("Not found?");
-                } else
+				PUT("This environment not found.")
+		} else
                         ShellUtilities::Print(argument);
 
                 NEWLINE

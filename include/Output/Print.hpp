@@ -10,6 +10,9 @@
 
 #include <iostream>
 
+
+#define PUT(x) ShellUtilities::Print(x);
+
 namespace ShellUtilities {
         int Print(std::string, ...);
         int Print(char*, ...);

@@ -17,7 +17,7 @@
 #define NEWLINE ShellUtilities::Print("\n");
 
 inline const char* CSTR(std::string str) {
-        return str.data();
+        return str.c_str();
 }
 
 inline std::string STRC(const char* ch) {
