@@ -19,14 +19,14 @@
 
 #include <FileSystem/ChangeDir.hpp>
 #include <FileSystem/List.hpp>
-
+#include <FileSystem/Read.hpp>
 
 #include <Output/Colorized.hpp>
 #include <Output/Print.hpp>
 
 /* Help */
 void Help() {
-        ShellUtilities::Print("Available commands: cd, ls, version, exit, help, desktop\n");
+        ShellUtilities::Print("Available commands: fcat, cd, ls, version, exit, help, desktop\n");
 }
 
 /* ~directory::username @> */
@@ -92,7 +92,10 @@ int main(/*int argc, char** argv*/) {
                                         "cd "));
                         else if(ShellUtilities::Compare(CSTR(data), "ls") == 0)
                                 ShellUtilities::DefaultList(true, "");
-                        else /* Other commands from system */
+                        else if(data.rfind("fcat", 0) == 0) {
+                                data = ShellUtilities::EraseAllSubString(data, "fcat ");
+                                ShellUtilities::ReadText(ShellUtilities::GetCurrentWorkingDir() + "/" + data);
+                        } else /* Other commands from system */
                                 ShellUtilities::RunFunction(data);
                 }
         }
