@@ -14,6 +14,8 @@ namespace ShellUtilities {
         int Print(std::string, ...);
         int Print(char*, ...);
         int Print(const char*, ...);
+
+        void Echo(std::string);
 }
 
 #endif /* PRINT_HPP */

@@ -9,8 +9,13 @@
 #include <cstdlib>
 #include <cstdio>
 
-#include <Output/Print.hpp>
 #include <Keywords.hpp>
+#include <GetInfo.hpp>
+#include <StringTools.hpp>
+#include <ShellUtilities.hpp>
+
+#include <Output/Print.hpp>
+#include <FileSystem/ChangeDir.hpp>
 
 int ShellUtilities::Print(std::string format, ...) {
         va_list arg;
@@ -43,4 +48,23 @@ int ShellUtilities::Print(const char* format, ...) {
   	va_end (arg);
 
   	return done;
+}
+
+/*
+	TODO: Check IsExist.
+*/
+void ShellUtilities::Echo(std::string argument) {
+	if(argument != "") {
+                if(argument[0] == '$') { 
+                        argument = argument.erase(0, 1);
+                        const char* environment = ShellUtilities::GetEnvironment(CSTR(argument));
+                        if(environment != NULL)
+                                ShellUtilities::Print(environment);
+                        else
+                                ShellUtilities::Print("Not found?");
+                } else
+                        ShellUtilities::Print(argument);
+
+                NEWLINE
+        }
 }
