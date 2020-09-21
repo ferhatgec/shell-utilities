@@ -15,6 +15,8 @@
 #include <Terminal.hpp>
 #include <StringTools.hpp>
 #include <ShellUtilities.hpp>
+#include <Keywords.hpp>
+
 #include <FileSystem/ChangeDir.hpp>
 #include <FileSystem/List.hpp>
 
@@ -23,7 +25,7 @@
 
 /* Help */
 void Help() {
-        std::cout << "Available commands: cd, version, exit, help, desktop\n";
+        std::cout << "Available commands: cd, ls, version, exit, help, desktop\n";
 }
 
 /* ~directory::username @> */
@@ -70,21 +72,21 @@ int main(/*int argc, char** argv*/) {
                 ShellUtilities::ExecuteName("MyShell");
     
                 /* Check if data equals 'exit' */
-                if(ShellUtilities::Compare(data.c_str(), "exit") == 0)
+                if(ShellUtilities::Compare(CSTR(data), "exit") == 0)
                         exit(EXIT_SUCCESS);
                 else {
                         /* Check if data equals 'help */
-                        if(ShellUtilities::Compare(data.c_str(), "help") == 0)
+                        if(ShellUtilities::Compare(CSTR(data), "help") == 0)
                                 Help();
-                        else if(ShellUtilities::Compare(data.c_str(), "desktop") == 0)
+                        else if(ShellUtilities::Compare(CSTR(data), "desktop") == 0)
                                 std::cout << ShellUtilities::GetDesktopEnvironment() << "\n";
-                        else if(ShellUtilities::Compare(data.c_str(), "version") == 0)
+                        else if(ShellUtilities::Compare(CSTR(data), "version") == 0)
                                 std::cout << NAME << " - " << ALL_VERSION << "\n" <<
                                         DESC << "\n";
                         else if(data.rfind("cd", 0) == 0)
                                 ShellUtilities::ChangeDir(ShellUtilities::EraseAllSubString(data,
                                         "cd "));
-                        else if(ShellUtilities::Compare(data.c_str(), "ls") == 0)
+                        else if(ShellUtilities::Compare(CSTR(data), "ls") == 0)
                                 ShellUtilities::DefaultList(true, "");
                         else /* Other commands from system */
                                 ShellUtilities::RunFunction(data);
