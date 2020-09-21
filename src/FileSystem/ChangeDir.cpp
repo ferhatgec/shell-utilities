@@ -26,7 +26,7 @@ void ShellUtilities::ChangeDir(std::string name) {
             		    strcpy(var.directory, new_name.c_str());
 	    		    chdir(new_name.c_str());
             		} else {
-            		    std::cout << "scrift : " << new_name << " : This directory is not exist!\n";
+            		    std::cout << var.name << " : " + new_name << " : This directory is not exist!\n";
             		    return;
             		}
            	} else {
@@ -39,7 +39,7 @@ void ShellUtilities::ChangeDir(std::string name) {
             		    std::strcat(var.directory, new_name.c_str());
             		    chdir(new_name.c_str());
             		} else {
-            		    std::cout << "scrift : " << new_name << " : This directory is not exist!\n";
+            		    std::cout << var.name << " : " + new_name << " : This directory is not exist!\n";
             		    return;
             		}
             	}
@@ -49,7 +49,7 @@ void ShellUtilities::ChangeDir(std::string name) {
 	    		    std::strcpy(var.directory, name.c_str());
 	    		    chdir(name.c_str());
             		} else {
-                                std::cout << "scrift : " <<  name << 
+                                std::cout << var.name << " : " + name << 
                                         " : This directory is not exist!\n";
             		}
             		return;
@@ -68,7 +68,7 @@ void ShellUtilities::ChangeDir(std::string name) {
 		                //char *path(&fsplusplus::GetCurrentWorkingDir()[0]);
                                 std::strcpy(var.directory, &ShellUtilities::GetCurrentWorkingDir()[0]);
 		        }  else {
-            	                std::cout << "scrift : " << name << 
+            	                std::cout << var.name << " : " + name << 
                                         " : This directory is not exist!\n";
                                 return;
             	        }
