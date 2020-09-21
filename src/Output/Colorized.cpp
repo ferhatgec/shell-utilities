@@ -10,6 +10,7 @@
 #include <sstream>
 
 #include <Output/Colorized.hpp>
+#include <Output/Print.hpp>
 
 std::string
 ShellUtilities::colorize(TYPE type, int color) {
@@ -23,7 +24,7 @@ ShellUtilities::textBackground(int color) {
 
 void
 ShellUtilities::setColor(const std::string color) {
-        std::cout << color;
+        ShellUtilities::Print(color);
 }
 
 void
@@ -34,9 +35,9 @@ ShellUtilities::setColor(TYPE type, int color) {
 void
 ShellUtilities::printfc(const std::string color, bool reset, char* msg) {
         ShellUtilities::setColor(color);
-        printf(msg);
+        ShellUtilities::Print(msg);
         if(reset)
-                printf(WBLACK_COLOR);
+                ShellUtilities::Print(WBLACK_COLOR);
 }
 
 void

@@ -8,4 +8,5 @@ g++ -I../../include/ \
 ../../src/FileSystem/ChangeDir.cpp \
 ../../src/StringTools.cpp \
 ../../src/Output/Colorized.cpp \
+../../src/Output/Print.cpp \
 ../../src/FileSystem/List.cpp shell.cpp -o shell

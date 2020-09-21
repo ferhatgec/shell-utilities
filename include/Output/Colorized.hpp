@@ -12,6 +12,8 @@
 #include <cstring>
 #include <sstream>
 
+#include <Output/Print.hpp>
+
 #define ESC 033 
 
 // Default Background color definitions
@@ -71,39 +73,39 @@
 #define LIGHT_WHITE 97
 
 
-#define RED_COLOR printf("\033[0;31m");
-#define GREEN_COLOR printf("\033[0;32m");
-#define YELLOW_COLOR printf("\033[0;33m");
-#define BLUE_COLOR printf("\033[0;34m");
-#define MAGENTA_COLOR printf("\033[0;35m");
-#define CYAN_COLOR printf("\033[0;36m");
-#define LIGHT_BLACK_COLOR printf("\033[0;90m");
-#define LIGHT_RED_COLOR printf("\033[0;91m");
-#define LIGHT_GREEN_COLOR printf("\033[0;92m");
-#define LIGHT_YELLOW_COLOR printf("\033[0;93m");
-#define LIGHT_BLUE_COLOR printf("\033[0;94m");
-#define LIGHT_MAGENTA_COLOR printf("\033[0;95m");
-#define LIGHT_CYAN_COLOR printf("\033[0;96m");
-#define LIGHT_WHITE_COLOR printf("\033[0;97m");
+#define RED_COLOR ShellUtilities::Print("\033[0;31m");
+#define GREEN_COLOR ShellUtilities::Print("\033[0;32m");
+#define YELLOW_COLOR ShellUtilities::Print("\033[0;33m");
+#define BLUE_COLOR ShellUtilities::Print("\033[0;34m");
+#define MAGENTA_COLOR ShellUtilities::Print("\033[0;35m");
+#define CYAN_COLOR ShellUtilities::Print("\033[0;36m");
+#define LIGHT_BLACK_COLOR ShellUtilities::Print("\033[0;90m");
+#define LIGHT_RED_COLOR ShellUtilities::Print("\033[0;91m");
+#define LIGHT_GREEN_COLOR ShellUtilities::Print("\033[0;92m");
+#define LIGHT_YELLOW_COLOR ShellUtilities::Print("\033[0;93m");
+#define LIGHT_BLUE_COLOR ShellUtilities::Print("\033[0;94m");
+#define LIGHT_MAGENTA_COLOR ShellUtilities::Print("\033[0;95m");
+#define LIGHT_CYAN_COLOR ShellUtilities::Print("\033[0;96m");
+#define LIGHT_WHITE_COLOR ShellUtilities::Print("\033[0;97m");
 
 // Default bold** color definitions
-#define BOLD_RED_COLOR printf("\033[1;31m");
-#define BOLD_GREEN_COLOR printf("\033[1;32m");
-#define BOLD_YELLOW_COLOR printf("\033[01;33m");
-#define BOLD_BLUE_COLOR printf("\033[1;34m");
-#define BOLD_MAGENTA_COLOR printf("\033[1;35m");
-#define BOLD_CYAN_COLOR printf("\033[1;36m");
-#define BOLD_LIGHT_BLACK_COLOR printf("\033[1;90m");
-#define BOLD_LIGHT_RED_COLOR printf("\033[1;91m");
-#define BOLD_LIGHT_GREEN_COLOR printf("\033[1;92m");
-#define BOLD_LIGHT_YELLOW_COLOR printf("\033[1;93m");
-#define BOLD_LIGHT_BLUE_COLOR printf("\033[1;94m");
-#define BOLD_LIGHT_MAGENTA_COLOR printf("\033[1;95m");
-#define BOLD_LIGHT_CYAN_COLOR printf("\033[1;96m");
-#define BOLD_LIGHT_WHITE_COLOR printf("\033[1;97m");
+#define BOLD_RED_COLOR ShellUtilities::Print("\033[1;31m");
+#define BOLD_GREEN_COLOR ShellUtilities::Print("\033[1;32m");
+#define BOLD_YELLOW_COLOR ShellUtilities::Print("\033[01;33m");
+#define BOLD_BLUE_COLOR ShellUtilities::Print("\033[1;34m");
+#define BOLD_MAGENTA_COLOR ShellUtilities::Print("\033[1;35m");
+#define BOLD_CYAN_COLOR ShellUtilities::Print("\033[1;36m");
+#define BOLD_LIGHT_BLACK_COLOR ShellUtilities::Print("\033[1;90m");
+#define BOLD_LIGHT_RED_COLOR ShellUtilities::Print("\033[1;91m");
+#define BOLD_LIGHT_GREEN_COLOR ShellUtilities::Print("\033[1;92m");
+#define BOLD_LIGHT_YELLOW_COLOR ShellUtilities::Print("\033[1;93m");
+#define BOLD_LIGHT_BLUE_COLOR ShellUtilities::Print("\033[1;94m");
+#define BOLD_LIGHT_MAGENTA_COLOR ShellUtilities::Print("\033[1;95m");
+#define BOLD_LIGHT_CYAN_COLOR ShellUtilities::Print("\033[1;96m");
+#define BOLD_LIGHT_WHITE_COLOR ShellUtilities::Print("\033[1;97m");
 
-#define RESETB printf("\033[0m");
-#define RESETW printf("\033[1;37m");
+#define RESETB ShellUtilities::Print("\033[0m");
+#define RESETW ShellUtilities::Print("\033[1;37m");
 
 // Default color definitions without printlnf
 #define WRED_COLOR "\033[0;31m"

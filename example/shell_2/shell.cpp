@@ -22,10 +22,11 @@
 
 
 #include <Output/Colorized.hpp>
+#include <Output/Print.hpp>
 
 /* Help */
 void Help() {
-        std::cout << "Available commands: cd, ls, version, exit, help, desktop\n";
+        ShellUtilities::Print("Available commands: cd, ls, version, exit, help, desktop\n");
 }
 
 /* ~directory::username @> */
