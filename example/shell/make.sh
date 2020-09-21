@@ -7,4 +7,4 @@ g++ -I../../include/ \
 ../../src/Terminal.cpp \
 ../../src/FileSystem/ChangeDir.cpp \
 ../../src/StringTools.cpp \
-../../src/Colorized.cpp shell.cpp -o shell
+../../src/Output/Colorized.cpp shell.cpp -o shell

@@ -8,7 +8,8 @@
 #include <iostream>
 #include <cstring>
 #include <sstream>
-#include <Colorized.hpp>
+
+#include <Output/Colorized.hpp>
 
 std::string
 ShellUtilities::colorize(TYPE type, int color) {

@@ -13,7 +13,8 @@
 
 #include <FileSystem/List.hpp>
 #include <FileSystem/ChangeDir.hpp>
-#include <Colorized.hpp>
+
+#include <Output/Colorized.hpp>
 
 void ShellUtilities::DefaultList(bool current_dir,
         const char* dir) {

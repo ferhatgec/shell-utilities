@@ -17,7 +17,7 @@
 #include <ShellUtilities.hpp>
 #include <FileSystem/ChangeDir.hpp>
 
-#include <Colorized.hpp>
+#include <Output/Colorized.hpp>
 
 int main(/*int argc, char** argv*/) {
         /* Set directory (Default PWD) */
