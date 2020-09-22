@@ -14,11 +14,11 @@
 #define PUT(x) ShellUtilities::Print(x);
 
 namespace ShellUtilities {
-        int Print(std::string, ...);
-        int Print(char*, ...);
-        int Print(const char*, ...);
+        int Print(std::string format, ...);
+        int Print(char* format, ...);
+        int Print(const char* format, ...);
 
-        void Echo(std::string);
+        void Echo(std::string argument);
 }
 
 #endif /* PRINT_HPP */

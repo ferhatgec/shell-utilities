@@ -7,6 +7,7 @@ g++ -I../../include/ \
 ../../src/Terminal.cpp \
 ../../src/FileSystem/ChangeDir.cpp \
 ../../src/FileSystem/Read.cpp \
+../../src/FileSystem/Create.cpp \
 ../../src/StringTools.cpp \
 ../../src/Output/Colorized.cpp \
 ../../src/Output/Print.cpp \

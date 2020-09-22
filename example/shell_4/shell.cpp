@@ -24,10 +24,11 @@
 #include <Output/Colorized.hpp>
 #include <Output/Print.hpp>
 
+#include <FileSystem/Create.hpp>
 
 /* Help */
 void Help() {
-        ShellUtilities::Print("Available commands: fcat, cd, ls, version, exit, help, desktop\n");
+        ShellUtilities::Print("Available commands: create, fcat, cd, ls, version, exit, help, desktop\n");
 }
 
 /* ~directory::username @> */
@@ -99,6 +100,9 @@ int main(/*int argc, char** argv*/) {
                         } else if(data.rfind("echo", 0) == 0) {
                                 data = ShellUtilities::EraseAllSubString(data, "echo ");
                                 ShellUtilities::Echo(data);
+                        } else if(data.rfind("create", 0) == 0) {
+                                data = ShellUtilities::EraseAllSubString(data, "create ");
+                                ShellUtilities::CreateFileWA(ShellUtilities::GetCurrentWorkingDir(), data);
                         } else /* Other commands from system */
                                 ShellUtilities::RunFunction(data);
                 }

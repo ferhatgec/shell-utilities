@@ -22,7 +22,7 @@ namespace ShellUtilities {
         void GetBtwString(std::string oStr, std::string sStr1, std::string sStr2, 
                 std::string &rStr);
 
-        int Compare(const char*, const char*);
+        int Compare(const char* str_1, const char* str_2);
 }
 
 #endif /* STRING_TOOLS_HPP */

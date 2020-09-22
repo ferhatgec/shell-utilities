@@ -11,8 +11,8 @@
 #include <iostream>
 
 namespace ShellUtilities {
-        void ReadText(std::string);
-        void ReadText(std::string, std::string);
+        void ReadText(std::string dir);
+        void ReadText(std::string dir, std::string copy);
 }
 
 #endif /* READ_HPP */

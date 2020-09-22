@@ -172,12 +172,12 @@ enum TYPE:int {
 
 
 namespace ShellUtilities {
-        std::string colorize(TYPE, int);
-        void textBackground(int);
-        void setColor(const std::string);
-        void setColor(TYPE, int);
-        void printfc(const std::string, bool, char*);
-        void printfc(const std::string, char*);
+        std::string colorize(TYPE type, int color);
+        void textBackground(int color);
+        void setColor(const std::string color);
+        void setColor(TYPE type, int color);
+        void printfc(const std::string color, bool reset, char* msg);
+        void printfc(const std::string color, char* msg);
 }
 
 #endif // COLORIZED_HPP

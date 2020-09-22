@@ -12,7 +12,7 @@
 #include <dirent.h>
 
 namespace ShellUtilities {
-        void DefaultList(bool, const char*);
+        void DefaultList(bool current_dir, const char* dir);
 }
 
 
