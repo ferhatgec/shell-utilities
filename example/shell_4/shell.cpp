@@ -20,11 +20,12 @@
 #include <FileSystem/ChangeDir.hpp>
 #include <FileSystem/List.hpp>
 #include <FileSystem/Read.hpp>
+#include <FileSystem/Create.hpp>
 
 #include <Output/Colorized.hpp>
 #include <Output/Print.hpp>
 
-#include <FileSystem/Create.hpp>
+#include <Info/Uptime.hpp>
 
 /* Help */
 void Help() {
@@ -82,19 +83,24 @@ int main(/*int argc, char** argv*/) {
                 if(ShellUtilities::Compare(CSTR(data), "exit") == 0)
                         exit(EXIT_SUCCESS);
                 else {
+                		/* Shell builtins */ 
                         /* Check if data equals 'help */
-                        if(ShellUtilities::Compare(CSTR(data), "help") == 0)
-                                Help();
-                        else if(ShellUtilities::Compare(CSTR(data), "desktop") == 0)
+                        if(ShellUtilities::Compare(CSTR(data), "help") == 0) { 
+                        	Help();
+                        } else if(ShellUtilities::Compare(CSTR(data), "desktop") == 0) {
                                 ShellUtilities::Print(ShellUtilities::GetDesktopEnvironment() + "\n");
-                        else if(ShellUtilities::Compare(CSTR(data), "version") == 0)
+                        } else if(ShellUtilities::Compare(CSTR(data), "version") == 0) {
                                 ShellUtilities::Print(NAME + STRC(" - ")  + ALL_VERSION + "\n" + DESC + "\n");
-                        else if(data.rfind("cd", 0) == 0)
+                        } else if(ShellUtilities::Compare(CSTR(data), "uptime") == 0) {
+                                const timepp_t uptime = ShellUtilities::Initialize();
+                                ShellUtilities::Print(std::to_string(uptime.hours) + "h " + 
+                                	std::to_string(uptime.minutes) + "m\n");
+                        } else if(data.rfind("cd", 0) == 0) {
                                 ShellUtilities::ChangeDir(ShellUtilities::EraseAllSubString(data,
                                         "cd "));
-                        else if(ShellUtilities::Compare(CSTR(data), "ls") == 0)
+                        } else if(ShellUtilities::Compare(CSTR(data), "ls") == 0) {
                                 ShellUtilities::DefaultList(true, "");
-                        else if(data.rfind("fcat", 0) == 0) {
+                        } else if(data.rfind("fcat", 0) == 0) {
                                 data = ShellUtilities::EraseAllSubString(data, "fcat ");
                                 ShellUtilities::ReadText(ShellUtilities::GetCurrentWorkingDir() + "/" + data);
                         } else if(data.rfind("echo", 0) == 0) {

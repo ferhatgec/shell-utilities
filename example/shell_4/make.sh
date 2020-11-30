@@ -11,4 +11,5 @@ g++ -I../../include/ \
 ../../src/StringTools.cpp \
 ../../src/Output/Colorized.cpp \
 ../../src/Output/Print.cpp \
-../../src/FileSystem/List.cpp shell.cpp -o shell
+../../src/FileSystem/List.cpp \
+../../src/Info/Uptime.cpp shell.cpp -o shell
