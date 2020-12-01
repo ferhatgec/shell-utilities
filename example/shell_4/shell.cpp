@@ -82,7 +82,7 @@ int main(/*int argc, char** argv*/) {
                 /* Check if data equals 'exit' */
                 if(ShellUtilities::Compare(CSTR(data), "exit") == 0)
                         exit(EXIT_SUCCESS);
-                else {
+                else if(data.length() != 0) {
                 		/* Shell builtins */ 
                         /* Check if data equals 'help */
                         if(ShellUtilities::Compare(CSTR(data), "help") == 0) { 
